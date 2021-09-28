@@ -2,46 +2,34 @@
 
 namespace ConsoleApp1
 {
+    enum Operation
+    {
+        Paper = 1,
+        Scissors = 2,
+        Stone = 3,
+    }
+
     class Program
     {
-
-        static int selection { get; set; }
-        static int value { get; set; }
-        static string slovo { get; set; }
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Камень, ножницы, бумага!");
-            Instruction();
-        }
-
-         enum Operation
-         {
-             Stone = 1,
-             Scissors = 2,
-             Paper = 3
-         }
-        static void GenerateNum()
-        {
-            Operation op;
-            Random rnd = new Random();
-            value = rnd.Next(1, 4);
-            op = (Operation)value;
-            Console.WriteLine($"Выбор компа: {op}");
-        }
-
-        static void Instruction()
-        {
-            Operation[] op = new Operation[] {};
-            for (; ;)
+            while(true)
             {
-                Console.WriteLine($"Выбери номер действия из 3 предложенных:\n Камень - 1 Ножницы - 2 Бумага - 3");
+                Random rnd = new Random();
+                bool validation;
+                int rawSelection;
+                Operation selection;
+                Operation botSelection;
+                string slovo;
 
-                selection = int.Parse(Console.ReadLine());
-                while (1 > selection || selection > 3)
+                Console.WriteLine($"Выбери номер действия из 3 предложенных:\n Бумага - 1 Ножницы - 2 Камень - 3");
+
+                validation = int.TryParse(Console.ReadLine(), out rawSelection);
+
+                while ((validation && rawSelection > 0 && rawSelection < 4) == false)
                 {
                     Console.WriteLine("vvedi deistvie normalnoe .|.");
-                    selection = int.Parse(Console.ReadLine());
+                    validation = int.TryParse(Console.ReadLine(), out rawSelection);
 
                     do
                     {
@@ -51,34 +39,57 @@ namespace ConsoleApp1
                     while (slovo != "извини");
                 }
 
-                
-                switch (selection)
-                {
-                    case 1:
-                        Console.WriteLine("Вы выбрали Камень");
-                        break;
-                    case 2:
-                        Console.WriteLine("Вы выбрали ножницы");
-                        break;
-                    case 3:
-                        Console.WriteLine("Вы выбрали бумагу");
-                        break;
-                }
+                selection = (Operation)rawSelection;
+                botSelection = (Operation)rnd.Next(1, 4);
 
-                GenerateNum();
+                Console.WriteLine($"Ваш выбор: {GetRuSelectionValue(selection)}");
 
-                if (selection == 1 && value == 2 || selection == 2 && value == 3 || selection == 3 && value == 1)  
-                    Console.WriteLine("Победил игрок");
-                
-                else if (value == 1 && selection == 2 || value == 2 && selection == 3 || value == 3 && selection == 1)
-                    Console.WriteLine("Победил комп");
+                Console.WriteLine($"Выбор компа: {GetRuSelectionValue(botSelection)}");
 
-                else
-                    Console.WriteLine("Ничья");
+                Console.WriteLine(CalculateResult(selection, botSelection));
 
                 Console.WriteLine("Играем дальше? ;)");
                 Console.ReadKey();
                 Console.Clear();
+            }
+        }
+
+        static string GetRuSelectionValue(Operation selection)
+        {
+            switch (selection)
+            {
+                case Operation.Stone:
+                    return "камень";
+                case Operation.Scissors:
+                    return "ножницы";
+                case Operation.Paper:
+                    return "бумага";
+                default:
+                    return "";
+            }
+        }
+
+        static string CalculateResult(Operation selection, Operation botSelection)
+        {
+            if(selection == botSelection)
+            {
+                return "Ничья";
+            } 
+            else if(selection == Operation.Paper && botSelection == Operation.Stone)
+            {
+                return "Выйграл игрок";
+            }
+            else if (selection == Operation.Stone && botSelection == Operation.Paper)
+            {
+                return "Выйграл комп";
+            }
+            else if (selection > botSelection)
+            {
+                return "Выйграл игрок";
+            } 
+            else
+            {
+                return "Выйграл комп";
             }
         }
     }

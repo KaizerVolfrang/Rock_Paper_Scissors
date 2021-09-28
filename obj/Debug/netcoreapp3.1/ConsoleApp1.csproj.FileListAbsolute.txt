@@ -11,3 +11,16 @@ C:\Users\CanineFlea54957\source\repos\ConsoleApp1\obj\Debug\netcoreapp3.1\Consol
 C:\Users\CanineFlea54957\source\repos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
 C:\Users\CanineFlea54957\source\repos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.genruntimeconfig.cache
 C:\Users\CanineFlea54957\source\repos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\bin\Debug\netcoreapp3.1\ConsoleApp1.exe
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\bin\Debug\netcoreapp3.1\ConsoleApp1.deps.json
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.json
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.dev.json
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\bin\Debug\netcoreapp3.1\ConsoleApp1.dll
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\bin\Debug\netcoreapp3.1\ConsoleApp1.pdb
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\obj\Debug\netcoreapp3.1\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfoInputs.cache
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfo.cs
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\obj\Debug\netcoreapp3.1\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
+C:\Users\EBOI\Desktop\Rock_Paper_Scissors\obj\Debug\netcoreapp3.1\ConsoleApp1.genruntimeconfig.cache
