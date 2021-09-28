@@ -4,67 +4,81 @@ namespace ConsoleApp1
 {
     class Program
     {
+
+        static int selection { get; set; }
         static int value { get; set; }
+        static string slovo { get; set; }
+
         static void Main(string[] args)
         {
-            Program program = new Program();
             Console.WriteLine("Камень, ножницы, бумага!");
-            program.Print();
+            Instruction();
         }
 
-        private string Print()
+         enum Operation
+         {
+             Stone = 1,
+             Scissors = 2,
+             Paper = 3
+         }
+        static void GenerateNum()
         {
-            Console.WriteLine("Нажми 1 чтобы начать игру,\n 2 чтобы выйти нахуй блять");
-            var result = Console.ReadLine();
-            if (result == "1")
-            {
-                Instruction();
-            }
-            else if(result == "2")
-            {
-                return result;
-            }
-            return result;
-        }
-
-        private void GenerateNum()
-        {
-            int[] nums = new int[3] { 1, 2, 3 };
+            Operation op;
             Random rnd = new Random();
-            for (int i = 0; i < 1; i++)
-            {
-                i = rnd.Next(1, 4);
-                value = i;
-                Console.WriteLine($"Выбор компа: {value}");
-            }
+            value = rnd.Next(1, 4);
+            op = (Operation)value;
+            Console.WriteLine($"Выбор компа: {op}");
         }
 
-        private void Instruction()
+        static void Instruction()
         {
-            for (;;)
+            Operation[] op = new Operation[] {};
+            for (; ;)
             {
-                Console.WriteLine("Выбери номер действия из 3 предложенных:\n Камень - 1 Ножницы - 2 Бумага - 3");
+                Console.WriteLine($"Выбери номер действия из 3 предложенных:\n Камень - 1 Ножницы - 2 Бумага - 3");
 
-                var selection = int.Parse(Console.ReadLine());
-                if(selection < 1 || selection > 3)
+                selection = int.Parse(Console.ReadLine());
+                while (1 > selection || selection > 3)
                 {
-                    Console.WriteLine("Dalbayeb vvedi deistvie normalnoe .|."); 
-                    var slovo = Console.ReadLine();
-                    Console.WriteLine("A teper izvinis vvedya slovlo извини");
-                    while (slovo != "извини")
+                    Console.WriteLine("vvedi deistvie normalnoe .|.");
+                    selection = int.Parse(Console.ReadLine());
+
+                    do
+                    {
+                        Console.WriteLine("izvinis vvedya slovlo извини");
                         slovo = Console.ReadLine();
+                    }
+                    while (slovo != "извини");
                 }
+
+                
+                switch (selection)
+                {
+                    case 1:
+                        Console.WriteLine("Вы выбрали Камень");
+                        break;
+                    case 2:
+                        Console.WriteLine("Вы выбрали ножницы");
+                        break;
+                    case 3:
+                        Console.WriteLine("Вы выбрали бумагу");
+                        break;
+                }
+
                 GenerateNum();
 
-                if (selection < value && selection - value == 1 || selection - value == -1)
+                if (selection == 1 && value == 2 || selection == 2 && value == 3 || selection == 3 && value == 1)  
                     Console.WriteLine("Победил игрок");
-
-                else if (selection > value && selection - value == 1 || selection - value == -1)
+                
+                else if (value == 1 && selection == 2 || value == 2 && selection == 3 || value == 3 && selection == 1)
                     Console.WriteLine("Победил комп");
 
                 else
                     Console.WriteLine("Ничья");
+
                 Console.WriteLine("Играем дальше? ;)");
+                Console.ReadKey();
+                Console.Clear();
             }
         }
     }
